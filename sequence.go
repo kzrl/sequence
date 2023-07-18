@@ -10,8 +10,8 @@ var m sync.Mutex
 // Reset resets the counter to zero.
 func Reset() int {
 	m.Lock()
+	defer m.Unlock()
 	num = 0
-	m.Unlock()
 	return num
 }
 
